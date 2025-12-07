@@ -1,0 +1,25 @@
+<form id="contactForm">
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="tel" id="phone" placeholder="Your Phone" required />
+  <textarea id="message" placeholder="Your Message" required></textarea>
+  <button type="button" onclick="sendToWhatsApp()">Send on WhatsApp</button>
+</form>
+
+<script>
+  function sendToWhatsApp() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var msg = document.getElementById("message").value;
+
+    var photographerNumber = "91 8306073071"; // photographer ka WhatsApp number (country code ke sath)
+
+    var text = `New enquiry from website:
+Name: ${name}
+Phone: ${phone}
+Message: ${msg}`;
+
+    var url = `https://wa.me/${photographerNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank");
+  }
+</script>
